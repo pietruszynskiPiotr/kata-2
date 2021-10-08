@@ -9,11 +9,7 @@ public class Main {
         int[] data = new int[] {1, 2, 2,-4, 100, 4, 5, 6, 8, 327, 7, 1, 10, 11, 8, 9, 21, 12, 4, -4};
         Map<Integer, Integer> histogram = new HashMap<>();
         for (int number : data) {
-            if (histogram.containsKey(number)) {
-                histogram.put(number, histogram.get(number) + 1);
-            } else {
-                histogram.put(number, 1);
-            }
+            histogram.put(number, histogram.containsKey(number) ? histogram.get(number) + 1 : 1);
         }
         for (Map.Entry<Integer, Integer> entry : histogram.entrySet()) {
             System.out.println(entry.getKey() + "==>" + entry.getValue());
